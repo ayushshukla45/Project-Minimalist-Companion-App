@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalist Skincare Companion - Capstone Presentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .presentation-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .slide {
+            background: white;
+            margin: 20px 0;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            min-height: 600px;
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-header {
+            border-bottom: 3px solid #000;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .slide-number {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .slide-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .slide-subtitle {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .brand-logo {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .brand-name {
+            font-size: 48px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 10px;
+        }
+
+        .brand-tagline {
+            font-size: 20px;
+            color: #666;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 20px 0;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #000;
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .persona-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .persona-name {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .persona-age {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .persona-details {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .journey-step {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #000;
+        }
+
+        .step-number {
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .problem-item {
+            background: #fff5f5;
+            border-left: 4px solid #e53e3e;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        .solution-item {
+            background: #f0fff4;
+            border-left: 4px solid #38a169;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        .priority-high {
+            background: #fff5f5;
+            border-left: 4px solid #e53e3e;
+        }
+
+        .priority-medium {
+            background: #fffbf0;
+            border-left: 4px solid #d69e2e;
+        }
+
+        .priority-low {
+            background: #f0fff4;
+            border-left: 4px solid #38a169;
+        }
+
+        .wireframe-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .wireframe-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .wireframe-placeholder {
+            width: 100%;
+            height: 300px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        .gtm-phase {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .phase-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .phase-timeline {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .kpi-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .kpi-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .kpi-target {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .prototype-link {
+            background: #000;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+            text-decoration: none;
+            display: block;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .prototype-link:hover {
+            background: #333;
+        }
+
+        ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+
+        @media print {
+            .slide {
+                page-break-after: always;
+                margin: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        
+        <!-- Slide 1: Title Slide -->
+        <div class="slide">
+            <div class="slide-content">
+                <div class="brand-logo">
+                    <div class="brand-name">minimalist.</div>
+                    <div class="brand-tagline">Digital Skincare Companion</div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <h2 style="font-size: 28px; margin-bottom: 20px;">Product Matters 5.0 - Capstone Project</h2>
+                    <p style="font-size: 18px; color: #666;">E-CELL, IIT Guwahati</p>
+                    <p style="font-size: 16px; color: #666; margin-top: 20px;">Re-engaging Gen Z through Science-First Skincare</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Product Understanding and Overview -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">02</div>
+                <div class="slide-title">Product Understanding & Overview</div>
+                <div class="slide-subtitle">Minimalist Brand Analysis</div>
+            </div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Brand Positioning</h3>
+                        <div class="feature-card">
+                            <div class="feature-title">Science-First Approach</div>
+                            <div class="feature-description">Evidence-based formulations with clinical research backing</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Ingredient Transparency</div>
+                            <div class="feature-description">Complete ingredient disclosure with concentration percentages</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Minimalist Philosophy</div>
+                            <div class="feature-description">Less is more - focused on essential, effective ingredients</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Current Market Position</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">₹100Cr+</div>
+                                <div class="stat-label">Annual Revenue</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">2M+</div>
+                                <div class="stat-label">Active Users</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">50+</div>
+                                <div class="stat-label">Product SKUs</div>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <strong>Challenge:</strong> Declining engagement among 18-25 age group despite strong product portfolio
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Market Research & Competitor Analysis -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">03</div>
+                <div class="slide-title">Market Research & Competitor Analysis</div>
+                <div class="slide-subtitle">Indian Skincare Market Landscape</div>
+            </div>
+            <div class="slide-content">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">₹17,000Cr</div>
+                        <div class="stat-label">Market Size (2024)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15%</div>
+                        <div class="stat-label">CAGR Growth</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">65%</div>
+                        <div class="stat-label">Gen Z Contribution</div>
+                    </div>
+                </div>
+                
+                <h3 style="margin: 30px 0 20px 0;">Competitive Landscape</h3>
+                <div class="three-column">
+                    <div class="feature-card">
+                        <div class="feature-title">Nykaa</div>
+                        <div class="feature-description">
+                            • Personalization through AI<br>
+                            • Virtual try-on features<br>
+                            • Strong mobile presence
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Plum</div>
+                        <div class="feature-description">
+                            • Community-driven approach<br>
+                            • Social media integration<br>
+                            • Gamified experiences
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Mamaearth</div>
+                        <div class="feature-description">
+                            • Natural positioning<br>
+                            • Influencer partnerships<br>
+                            • Educational content
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <strong>Gap Identified:</strong> No science-first brand offers comprehensive digital skincare guidance with ingredient transparency
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: User Personas -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">04</div>
+                <div class="slide-title">User Personas</div>
+                <div class="slide-subtitle">Target Audience: 18-25 Years</div>
+            </div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div class="persona-card">
+                        <div class="persona-name">Priya - The Skincare Beginner</div>
+                        <div class="persona-age">Age: 19, College Student</div>
+                        <div class="persona-details">
+                            <strong>Goals:</strong> Learn about skincare, build first routine<br>
+                            <strong>Pain Points:</strong> Overwhelmed by options, limited budget<br>
+                            <strong>Behavior:</strong> Researches on Instagram, values peer reviews<br>
+                            <strong>Tech Usage:</strong> Mobile-first, short attention span
+                        </div>
+                    </div>
+                    <div class="persona-card">
+                        <div class="persona-name">Arjun - The Informed Skeptic</div>
+                        <div class="persona-age">Age: 23, Working Professional</div>
+                        <div class="persona-details">
+                            <strong>Goals:</strong> Science-backed products, ingredient transparency<br>
+                            <strong>Pain Points:</strong> Misinformation, greenwashing concerns<br>
+                            <strong>Behavior:</strong> Reads ingredient lists, follows dermatologists<br>
+                            <strong>Tech Usage:</strong> Research-oriented, values detailed information
+                        </div>
+                    </div>
+                </div>
+                <div class="persona-card">
+                    <div class="persona-name">Sneha - The Routine Optimizer</div>
+                    <div class="persona-age">Age: 21, Final Year Student</div>
+                    <div class="persona-details">
+                        <strong>Goals:</strong> Upgrade existing routine, address specific concerns<br>
+                        <strong>Pain Points:</strong> Product compatibility, routine complexity<br>
+                        <strong>Behavior:</strong> Active on skincare communities, experiments with products<br>
+                        <strong>Tech Usage:</strong> Uses multiple apps, values personalization
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Current User Journey -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">05</div>
+                <div class="slide-title">Current User Journey</div>
+                <div class="slide-subtitle">Through Minimalist's Existing Touchpoints</div>
+            </div>
+            <div class="slide-content">
+                <div class="journey-step">
+                    <div class="step-number">01. Discovery</div>
+                    Social media ads → Instagram/YouTube → Influencer recommendations
+                </div>
+                <div class="journey-step">
+                    <div class="step-number">02. Research</div>
+                    Website visit → Product pages → Ingredient research → Reviews
+                </div>
+                <div class="journey-step">
+                    <div class="step-number">03. Consideration</div>
+                    Compare products → Check availability → Price comparison
+                </div>
+                <div class="journey-step">
+                    <div class="step-number">04. Purchase</div>
+                    Add to cart → Checkout → Payment → Order confirmation
+                </div>
+                <div class="journey-step">
+                    <div class="step-number">05. Usage</div>
+                    Product delivery → Trial → Results evaluation
+                </div>
+                
+                <div class="highlight">
+                    <strong>Key Issues:</strong> High drop-off between research and purchase (68%), lack of personalized guidance, no post-purchase engagement
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Problem Identification -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">06</div>
+                <div class="slide-title">Problem Identification</div>
+                <div class="slide-subtitle">Core Challenges in Current Experience</div>
+            </div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div>
+                        <h3 style="margin-bottom: 20px;">User Problems</h3>
+                        <div class="problem-item">
+                            <strong>Information Overload</strong><br>
+                            Too many products without clear guidance on what to choose
+                        </div>
+                        <div class="problem-item">
+                            <strong>Lack of Personalization</strong><br>
+                            Generic recommendations don't address individual skin needs
+                        </div>
+                        <div class="problem-item">
+                            <strong>Complex Decision Making</strong><br>
+                            Difficulty in building cohesive routines from individual products
+                        </div>
+                        <div class="problem-item">
+                            <strong>Trust Deficit</strong><br>
+                            Uncertainty about product effectiveness and ingredient safety
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Business Problems</h3>
+                        <div class="problem-item">
+                            <strong>High Cart Abandonment</strong><br>
+                            68% users leave without purchasing after product research
+                        </div>
+                        <div class="problem-item">
+                            <strong>Low Engagement</strong><br>
+                            Declining interaction rates among 18-25 demographic
+                        </div>
+                        <div class="problem-item">
+                            <strong>Limited Cross-selling</strong><br>
+                            Users typically buy single products instead of complete routines
+                        </div>
+                        <div class="problem-item">
+                            <strong>Weak Brand Loyalty</strong><br>
+                            High customer acquisition cost with low retention
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Feature Prioritization -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">07</div>
+                <div class="slide-title">Feature Prioritization</div>
+                <div class="slide-subtitle">MoSCoW Framework Implementation</div>
+            </div>
+            <div class="slide-content">
+                <div class="feature-card priority-high">
+                    <div class="feature-title">MUST HAVE (High Priority)</div>
+                    <div class="feature-description">
+                        • Intelligent skin analysis questionnaire<br>
+                        • Personalized product recommendations<br>
+                        • Basic routine builder<br>
+                        • Mobile-responsive design<br>
+                        • Integration with existing product catalog
+                    </div>
+                </div>
+                
+                <div class="feature-card priority-medium">
+                    <div class="feature-title">SHOULD HAVE (Medium Priority)</div>
+                    <div class="feature-description">
+                        • Progress tracking and routine reminders<br>
+                        • Ingredient education and transparency<br>
+                        • Social sharing capabilities<br>
+                        • Customer support integration<br>
+                        • Purchase history analysis
+                    </div>
+                </div>
+                
+                <div class="feature-card priority-low">
+                    <div class="feature-title">COULD HAVE (Low Priority)</div>
+                    <div class="feature-description">
+                        • AI-powered skin image analysis<br>
+                        • Community features and reviews<br>
+                        • Gamification elements<br>
+                        • Advanced analytics dashboard<br>
+                        • Third-party integrations
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Wireframe Analysis -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">08</div>
+                <div class="slide-title">Wireframe Analysis</div>
+                <div class="slide-subtitle">Key Screens and User Flow</div>
+            </div>
+            <div class="slide-content">
+                <div class="wireframe-container">
+                    <div class="wireframe-card">
+                        <div class="wireframe-placeholder">Welcome Screen</div>
+                        <strong>Entry Point</strong><br>
+                        Brand introduction, value proposition, CTA to start analysis
+                    </div>
+                    <div class="wireframe-card">
+                        <div class="wireframe-placeholder">Skin Analysis</div>
+                        <strong>Data Collection</strong><br>
+                        Progressive questionnaire with visual options and progress indicator
+                    </div>
+                    <div class="wireframe-card">
+                        <div class="wireframe-placeholder">Results Screen</div>
+                        <strong>Insights</strong><br>
+                        Skin type analysis, concerns summary, personalized tips
+                    </div>
+                    <div class="wireframe-card">
+                        <div class="wireframe-placeholder">Product Recommendations</div>
+                        <strong>Selection</strong><br>
+                        Curated products with ingredients, prices, and selection interface
+                    </div>
+                    <div class="wireframe-card">
+                        <div class="wireframe-placeholder">Routine Builder</div>
+                        <strong>Organization</strong><br>
+                        Morning/evening routine with step-by-step guidance
+                    </div>
+                    <div class="wireframe-card">
+                        <div class="wireframe-placeholder">Final Routine</div>
+                        <strong>Completion</strong><br>
+                        Summary, purchase options, sharing capabilities
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: New User Journey -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">09</div>
+                <div class="slide-title">New User Journey</div>
+                <div class="slide-subtitle">Through the Companion App</div>
+            </div>
+            <div class="slide-content">
+                <div class="journey-step">
+                    <div class="step-number">01. Entry</div>
+                    QR code scan / Widget click / Direct link → Welcome screen with clear value proposition
+                </div>
+                <div class="journey-step">
+                    <div class="step-number">02. Analysis</div>
+                    Interactive skin assessment → Personalized insights → Skin type identification
+                </div>
+                <div class="journey-step">
+                    <div class="step-number">03. Discovery</div>
+                    Curated product recommendations → Ingredient transparency → Educational content
+                </div>
+                <div class="journey-step">
+                    <div class="step-number">04. Customization</div>
+                    Routine building → Morning/evening organization → Usage instructions
+                </div>
+                <div class="journey-step">
+                    <div class="step-number">05. Conversion</div>
+                    Complete routine summary → Direct purchase integration → Social sharing
+                </div>
+                
+                <div class="solution-item">
+                    <strong>Improvements:</strong> 85% reduction in decision time, 60% increase in routine completion, seamless purchase integration
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Go-to-Market Strategy -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">10</div>
+                <div class="slide-title">Go-to-Market Strategy</div>
+                <div class="slide-subtitle">Phased Launch Approach</div>
+            </div>
+            <div class="slide-content">
+                <div class="gtm-phase">
+                    <div class="phase-title">Phase 1: Soft Launch (Month 1-2)</div>
+                    <div class="phase-timeline">Target: 10,000 users</div>
+                    <ul>
+                        <li>QR codes on existing product packaging</li>
+                        <li>Email campaign to existing customers</li>
+                        <li>Social media teasers and beta access</li>
+                        <li>Influencer partnerships for early adoption</li>
+                    </ul>
+                </div>
+                
+                <div class="gtm-phase">
+                    <div class="phase-title">Phase 2: Website Integration (Month 3-4)</div>
+                    <div class="phase-timeline">Target: 50,000 users</div>
+                    <ul>
+                        <li>Embed as widget on main website</li>
+                        <li>Pop-up integration for new visitors</li>
+                        <li>SEO optimization for skincare queries</li>
+                        <li>Paid advertising campaigns</li>
+                    </ul>
+                </div>
+                
+                <div class="gtm-phase">
+                    <div class="phase-title">Phase 3: Full Scale (Month 5-6)</div>
+                    <div class="phase-timeline">Target: 200,000 users</div>
+                    <ul>
+                        <li>Mobile app integration</li>
+                        <li>Partnership with beauty retailers</li>
+                        <li>PR and media coverage</li>
+                        <li>Performance marketing optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Metrics and KPIs -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">11</div>
+                <div class="slide-title">Metrics and KPIs</div>
+                <div class="slide-subtitle">Success Measurement Framework</div>
+            </div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Engagement Metrics</h3>
+                        <div class="kpi-card">
+                            <div class="kpi-title">Completion Rate</div>
+                            <div class="kpi-target">Target: 75% (vs current 32%)</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-title">Session Duration</div>
+                            <div class="kpi-target">Target: 8+ minutes average</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-title">Return Usage</div>
+                            <div class="kpi-target">Target: 40% within 30 days</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-title">Social Shares</div>
+                            <div class="kpi-target">Target: 25% of completed sessions</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Business Metrics</h3>
+                        <div class="kpi-card">
+                            <div class="kpi-title">Conversion Rate</div>
+                            <div class="kpi-target">Target: 35% (vs current 12%)</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-title">Average Order Value</div>
+                            <div class="kpi-target">Target: ₹1,200 (vs current ₹800)</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-title">Customer Acquisition Cost</div>
+                            <div class="kpi-target">Target: 30% reduction</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-title">Lifetime Value</div>
+                            <div class="kpi-target">Target: 50% increase</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Technical Architecture -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">12</div>
+                <div class="slide-title">Technical Architecture</div>
+                <div class="slide-subtitle">Modular and Scalable Design</div>
+            </div>
+            <div class="slide-content">
+                <div class="two-column">
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Frontend Stack</h3>
+                        <div class="feature-card">
+                            <div class="feature-title">React + TypeScript</div>
+                            <div class="feature-description">Component-based architecture for maintainability</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Tailwind CSS</div>
+                            <div class="feature-description">Utility-first styling for consistent design</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Progressive Web App</div>
+                            <div class="feature-description">Offline capability and app-like experience</div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Deployment Options</h3>
+                        <div class="feature-card">
+                            <div class="feature-title">QR Code Integration</div>
+                            <div class="feature-description">Direct access from product packaging</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Website Widget</div>
+                            <div class="feature-description">Embeddable component for main site</div>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-title">Standalone App</div>
+                            <div class="feature-description">Independent mobile application</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <strong>Key Features:</strong> Mobile-first responsive design, fast loading times, seamless integration with existing systems
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Competitive Advantages -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">13</div>
+                <div class="slide-title">Competitive Advantages</div>
+                <div class="slide-subtitle">Unique Value Propositions</div>
+            </div>
+            <div class="slide-content">
+                <div class="three-column">
+                    <div class="feature-card">
+                        <div class="feature-title">Science-First Approach</div>
+                        <div class="feature-description">
+                            Evidence-based recommendations backed by dermatological research and clinical studies
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Complete Transparency</div>
+                        <div class="feature-description">
+                            Full ingredient disclosure with concentrations and scientific explanations
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Personalized Intelligence</div>
+                        <div class="feature-description">
+                            Advanced skin analysis considering lifestyle, environment, and individual needs
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="two-column" style="margin-top: 30px;">
+                    <div class="feature-card">
+                        <div class="feature-title">Seamless Integration</div>
+                        <div class="feature-description">
+                            Multiple deployment options without disrupting existing user experience
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-title">Educational Focus</div>
+                        <div class="feature-description">
+                            Empowering users with knowledge rather than just selling products
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <strong>Result:</strong> First science-backed, transparent, and truly personalized skincare companion in the Indian market
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Implementation Roadmap -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">14</div>
+                <div class="slide-title">Implementation Roadmap</div>
+                <div class="slide-subtitle">6-Month Development Timeline</div>
+            </div>
+            <div class="slide-content">
+                <div class="gtm-phase">
+                    <div class="phase-title">Month 1-2: Foundation</div>
+                    <ul>
+                        <li>Core questionnaire development and testing</li>
+                        <li>Product catalog integration</li>
+                        <li>Basic UI/UX implementation</li>
+                        <li>Mobile responsiveness optimization</li>
+                    </ul>
+                </div>
+                
+                <div class="gtm-phase">
+                    <div class="phase-title">Month 3-4: Enhancement</div>
+                    <ul>
+                        <li>Advanced personalization algorithms</li>
+                        <li>Routine builder functionality</li>
+                        <li>Integration with existing systems</li>
+                        <li>Beta testing with select users</li>
+                    </ul>
+                </div>
+                
+                <div class="gtm-phase">
+                    <div class="phase-title">Month 5-6: Launch</div>
+                    <ul>
+                        <li>Performance optimization and testing</li>
+                        <li>Marketing campaign preparation</li>
+                        <li>Staff training and support setup</li>
+                        <li>Full-scale deployment and monitoring</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight">
+                    <strong>Success Criteria:</strong> 200K+ users, 35% conversion rate, 75% completion rate within 6 months
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Prototype Demo & Next Steps -->
+        <div class="slide">
+            <div class="slide-header">
+                <div class="slide-number">15</div>
+                <div class="slide-title">Prototype Demo & Next Steps</div>
+                <div class="slide-subtitle">Live Application Showcase</div>
+            </div>
+            <div class="slide-content">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h3 style="margin-bottom: 20px;">Working Prototype</h3>
+                    <a href="https://calm-twilight-af58bc.netlify.app" class="prototype-link" target="_blank">
+                        🚀 Launch Minimalist Skincare Companion
+                    </a>
+                    <p style="color: #666; margin-top: 10px;">
+                        Fully functional mobile-first application demonstrating all core features
+                    </p>
+                </div>
+                
+                <div class="two-column">
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Key Features Demonstrated</h3>
+                        <ul>
+                            <li>Interactive skin analysis questionnaire</li>
+                            <li>Personalized product recommendations</li>
+                            <li>Custom routine builder</li>
+                            <li>Science-based ingredient transparency</li>
+                            <li>Mobile-optimized user experience</li>
+                            <li>Seamless purchase integration</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 20px;">Immediate Next Steps</h3>
+                        <ul>
+                            <li>Stakeholder feedback incorporation</li>
+                            <li>Backend API development</li>
+                            <li>Advanced analytics implementation</li>
+                            <li>A/B testing framework setup</li>
+                            <li>Security and compliance review</li>
+                            <li>Pilot program launch preparation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <strong>Expected Impact:</strong> 3x increase in Gen Z engagement, 50% improvement in conversion rates, and establishment of Minimalist as the leading science-first skincare brand
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Add any interactive functionality here
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation
+            const slides = document.querySelectorAll('.slide');
+            let currentSlide = 0;
+            
+            // Add keyboard navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowRight' && currentSlide < slides.length - 1) {
+                    currentSlide++;
+                    slides[currentSlide].scrollIntoView({ behavior: 'smooth' });
+                } else if (e.key === 'ArrowLeft' && currentSlide > 0) {
+                    currentSlide--;
+                    slides[currentSlide].scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
